@@ -26,11 +26,28 @@ namespace MyShop.WebUI.Controllers
         }
 
         // GET: ProductManager
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    List<Product> products = context.Collection().ToList();
+        //    return View(products);
+        //}
+
+        public ActionResult Index(string searchString)
         {
-            List<Product> products = context.Collection().ToList();
-            return View(products);
+           if(searchString == null)
+            {
+                return View("Index");
+            }
+           else
+            {
+                var categories = productCategories.Find(searchString);
+
+            }
+                                            
+
         }
+
+
 
         [HttpGet]
         public ActionResult Create()
