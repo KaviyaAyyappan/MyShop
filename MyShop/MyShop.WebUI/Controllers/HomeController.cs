@@ -20,12 +20,12 @@ namespace MyShop.WebUI.Controllers
             context = productContext;
             productCategories = productCategoryContext;
         }
-        public ActionResult Index(string Category=null)
+        public ActionResult Index(string Category = null)
         {
             List<Product> products;
             List<ProductCategory> categories = productCategories.Collection().ToList();
-            
-            if(Category==null)
+
+            if (Category == null)
             {
                 products = context.Collection().ToList();
             }
@@ -38,7 +38,7 @@ namespace MyShop.WebUI.Controllers
             model.Products = products;
             model.ProductCategory = categories;
             return View(model);
-          
+
         }
 
         public ActionResult Details(string id)
